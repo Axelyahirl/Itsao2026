@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Alejandro Montes de Oca</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #34495e;
+            --accent-color: #3498db;
+            --text-color: #333;
+            --light-bg: #f4f7f6;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--light-bg);
+            margin: 0;
+            padding: 20px;
+        }
+
+        .cv-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 40px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+
+        header {
+            border-bottom: 3px solid var(--accent-color);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        h1 {
+            margin: 0;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: var(--accent-color);
+            font-weight: bold;
+            margin-top: 5px;
+        }
+
+        .contact-info {
+            margin-top: 15px;
+            font-size: 0.9rem;
+            color: var(--secondary-color);
+        }
+
+        .contact-info span {
+            margin: 0 10px;
+        }
+
+        section {
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            border-left: 5px solid var(--accent-color);
+            padding-left: 15px;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+
+        .job, .edu {
+            margin-bottom: 20px;
+        }
+
+        .job-header, .edu-header {
+            display: flex;
+            justify-content: space-between;
+            font-weight: bold;
+            color: var(--secondary-color);
+        }
+
+        .job-title {
+            color: var(--accent-color);
+            font-style: italic;
+        }
+
+        ul {
+            padding-left: 20px;
+            margin-top: 5px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: var(--light-bg);
+            color: var(--primary-color);
+        }
+
+        .badge {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            padding: 2px 10px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            margin-top: 5px;
+        }
+
+        @media (max-width: 600px) {
+            .job-header, .edu-header {
+                flex-direction: column;
+            }
+            .cv-container {
+                padding: 20px;
+            }
+        }
+
+        @media print {
+            body { background: none; padding: 0; }
+            .cv-container { box-shadow: none; border: none; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="cv-container">
+    <header>
+        <h1>Alejandro Montes de Oca</h1>
+        <div class="subtitle">Especialista en Marketing Digital & Estrategia de Contenidos</div>
+        <div class="contact-info">
+            <span>📍 Ciudad de México</span> | 
+            <span>📞 +52 55 1234 5678</span> | 
+            <span>✉️ alejandro.montes@emailficticio.com</span>
+        </div>
+    </header>
+
+    <section>
+        <h2>Perfil Profesional</h2>
+        <p>Profesional creativo y analítico con más de <strong>6 años de experiencia</strong> gestionando estrategias digitales para marcas del sector retail y tecnológico. Experto en optimización de embudos de venta, gestión de pautas publicitarias (Ads) y análisis de datos para maximizar el ROI.</p>
+    </section>
+
+    <section>
+        <h2>Experiencia Laboral</h2>
+        
+        <div class="job">
+            <div class="job-header">
+                <span>Nova Tech Solutions</span>
+                <span>Enero 2021 – Presente</span>
+            </div>
+            <div class="job-title">Senior Marketing Specialist</div>
+            <ul>
+                <li><strong>Lideré</strong> un equipo de 4 personas para el relanzamiento de e-commerce, incrementando ventas orgánicas en un 35%.</li>
+                <li><strong>Gestioné</strong> presupuestos de pauta digital superiores a $10,000 USD mensuales con ROAS de 4.5.</li>
+                <li><strong>Implementé</strong> automatización de correos reduciendo el abandono de carrito en un 20%.</li>
+            </ul>
+        </div>
+
+        <div class="job">
+            <div class="job-header">
+                <span>Agencia Creativa "Vértice"</span>
+                <span>Marzo 2017 – Diciembre 2020</span>
+            </div>
+            <div class="job-title">Content Manager</div>
+            <ul>
+                <li><strong>Desarrollé</strong> calendarios editoriales logrando crecimiento del 150% en Instagram.</li>
+                <li><strong>Coordiné</strong> la producción audiovisual alineada a objetivos de branding.</li>
+                <li><strong>Posicioné</strong> 12 palabras clave en la primera página de Google mediante SEO.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section>
+        <h2>Habilidades y Herramientas</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Técnicas (Hard Skills)</th>
+                    <th>Blandas (Soft Skills)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>SEO / SEM (Ahrefs, Semrush)</td>
+                    <td>Liderazgo de equipos</td>
+                </tr>
+                <tr>
+                    <td>Google Analytics 4 (GA4)</td>
+                    <td>Pensamiento analítico</td>
+                </tr>
+                <tr>
+                    <td>Meta Business Suite</td>
+                    <td>Comunicación asertiva</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section>
+        <h2>Formación Académica</h2>
+        <div class="edu">
+            <div class="edu-header">
+                <span>Universidad Nacional Autónoma de México (UNAM)</span>
+                <span>2016</span>
+            </div>
+            <div>Licenciatura en Comunicación y Medios Digitales</div>
+        </div>
+        <div class="badge">Certificación Profesional en Google Ads & Analytics (2024)</div>
+    </section>
+
+    <section>
+        <h2>Idiomas</h2>
+        <p><strong>Español:</strong> Nativo | <strong>Inglés:</strong> Avanzado (C1) | <strong>Portugués:</strong> Básico</p>
+    </section>
+</div>
+
+</body>
+</html>
