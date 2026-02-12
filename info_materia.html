@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desarrollo Full Stack - DSH-2502</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 0 30px rgba(0,0,0,0.3);
+        }
+        
+        header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        header .codigo {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+        
+        .hero h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        nav {
+            background: #2c3e50;
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: #667eea;
+        }
+        
+        .section {
+            padding: 3rem 2rem;
+        }
+        
+        .section:nth-child(even) {
+            background: #f8f9fa;
+        }
+        
+        .section h2 {
+            color: #2c3e50;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            border-left: 5px solid #667eea;
+            padding-left: 1rem;
+        }
+        
+        .section h3 {
+            color: #34495e;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .info-box {
+            background: white;
+            border-left: 4px solid #667eea;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .info-box.highlight {
+            background: #e8f4f8;
+            border-left-color: #3498db;
+        }
+        
+        .competencias-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .competencia-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            border-top: 4px solid #667eea;
+        }
+        
+        .temas-list {
+            display: grid;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .tema-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .tema-item h3 {
+            color: #667eea;
+            margin-top: 0;
+        }
+        
+        .tema-item ul {
+            margin-left: 1.5rem;
+            margin-top: 0.5rem;
+        }
+        
+        .tema-item li {
+            margin: 0.5rem 0;
+        }
+        
+        .practicas-list {
+            list-style: none;
+            counter-reset: practica-counter;
+        }
+        
+        .practicas-list li {
+            counter-increment: practica-counter;
+            padding: 1rem;
+            margin: 1rem 0;
+            background: white;
+            border-left: 4px solid #667eea;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .practicas-list li::before {
+            content: counter(practica-counter) ". ";
+            font-weight: bold;
+            color: #667eea;
+            font-size: 1.2rem;
+        }
+        
+        .bibliografia {
+            list-style: none;
+        }
+        
+        .bibliografia li {
+            padding: 1rem;
+            margin: 0.5rem 0;
+            background: #f8f9fa;
+            border-left: 3px solid #667eea;
+        }
+        
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .fases-proyecto {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .fase {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            border-top: 4px solid #3498db;
+        }
+        
+        .fase h4 {
+            color: #3498db;
+            margin-bottom: 0.5rem;
+        }
+        
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .hero h2 {
+                font-size: 1.5rem;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            .section {
+                padding: 2rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Desarrollo Full Stack</h1>
+            <p class="codigo">DSH-2502 | SATCA: 1-3-4</p>
+            <p>Ingeniería Informática</p>
+            <p style="margin-top: 1rem; font-size: 0.9rem;">Tecnológico Nacional de México</p>
+        </header>
+
+        <div class="hero">
+            <h2>Construye Aplicaciones Web Completas y Modernas</h2>
+            <p>Domina el desarrollo Front-End y Back-End con tecnologías actuales</p>
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="#presentacion">Presentación</a></li>
+                <li><a href="#competencias">Competencias</a></li>
+                <li><a href="#temario">Temario</a></li>
+                <li><a href="#practicas">Prácticas</a></li>
+                <li><a href="#proyecto">Proyecto</a></li>
+                <li><a href="#bibliografia">Bibliografía</a></li>
+            </ul>
+        </nav>
+
+        <section id="presentacion" class="section">
+            <h2>Presentación</h2>
+            
+            <div class="info-box highlight">
+                <h3>Caracterización de la Asignatura</h3>
+                <p>La asignatura de Desarrollo Full Stack capacita a los estudiantes en el diseño, implementación y gestión de aplicaciones web completas, abarcando desde la arquitectura cliente-servidor, desarrollo front-end accesible y responsivo con HTML5, CSS3 y frameworks modernos, hasta la aplicación de patrones de diseño en back-end y el uso de Angular, servicios RESTful, integración con Firebase, control de versiones, y despliegue continuo para crear soluciones escalables y modernas.</p>
+            </div>
+
+            <div class="info-box">
+                <h3>Intención Didáctica</h3>
+                <p>Esta asignatura tiene como intención didáctica que el estudiante comprenda y aplique de manera integral los conceptos, herramientas y patrones de diseño necesarios para construir, implementar y mantener aplicaciones web completas, accesibles, responsivas y escalables, utilizando tecnologías modernas desde el front-end hasta el back-end, así como prácticas de control de versiones e integración continua.</p>
+            </div>
+        </section>
+
+        <section id="competencias" class="section">
+            <h2>Competencias a Desarrollar</h2>
+            
+            <div class="competencias-grid">
+                <div class="competencia-card">
+                    <h3>Competencias Específicas</h3>
+                    <p>Diseñar e implementar interfaces web accesibles, responsivas y usables, utilizando tecnologías y frameworks actuales como HTML5, CSS3, lenguajes de lado servidor (PHP, JSP, ASP), Bootstrap y Angular, con base en principios de usabilidad y experiencia del usuario.</p>
+                    <p style="margin-top: 1rem;">Implementar patrones de diseño en la lógica del lado servidor para construir arquitecturas sólidas, escalables y mantenibles.</p>
+                </div>
+
+                <div class="competencia-card">
+                    <h3>Competencias Genéricas</h3>
+                    <ul>
+                        <li>Comunicación oral y escrita</li>
+                        <li>Habilidad para trabajar en equipo</li>
+                        <li>Habilidades de investigación</li>
+                        <li>Habilidades en el uso de tecnologías de la información y comunicación</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="info-box" style="margin-top: 2rem;">
+                <h3>Competencias Previas Requeridas</h3>
+                <ul>
+                    <li>Comprender los fundamentos de la programación orientada a objetos y funcional</li>
+                    <li>Modelar sistemas mediante diagramas UML</li>
+                    <li>Analizar y resolver problemas computacionales con algoritmos y estructuras de datos</li>
+                    <li>Conocer fundamentos del desarrollo web (HTML, CSS, JavaScript)</li>
+                    <li>Tener nociones básicas sobre bases de datos y operaciones CRUD</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="temario" class="section">
+            <h2>Temario</h2>
+            
+            <div class="temas-list">
+                <div class="tema-item">
+                    <h3>1. Fundamentos del Desarrollo Full Stack</h3>
+                    <ul>
+                        <li>Rol y diferencias del Front-End, Back-End y Full Stack</li>
+                        <li>Arquitectura cliente-servidor y SDN en capas</li>
+                        <li>Navegadores, servidores web, hosting y dominios</li>
+                        <li>Herramientas clave: Node.js, NPM, Git, Visual Studio Code</li>
+                        <li>Control de versiones con Git y GitHub</li>
+                        <li>Integración y despliegue continuo (CI/CD) con GitHub Actions</li>
+                    </ul>
+                </div>
+
+                <div class="tema-item">
+                    <h3>2. Interfaces Web Modernas y Accesibles</h3>
+                    <ul>
+                        <li>HTML5 y estructura semántica</li>
+                        <li>CSS3, modelo de caja, media queries</li>
+                        <li>Bootstrap/Tailwind CSS: estilos y componentes reutilizables</li>
+                        <li>Principios de accesibilidad (WCAG)</li>
+                        <li>Diseño adaptativo y responsive</li>
+                    </ul>
+                </div>
+
+                <div class="tema-item">
+                    <h3>3. Patrones de Diseño para la Arquitectura del Back-End</h3>
+                    <ul>
+                        <li><strong>Patrones Creacionales:</strong> Singleton, Factory Method</li>
+                        <li><strong>Patrones Estructurales:</strong> Adapter, Decorator, Composite</li>
+                        <li><strong>Patrones de Comportamiento:</strong> Observer, State</li>
+                    </ul>
+                </div>
+
+                <div class="tema-item">
+                    <h3>4. Desarrollo Front-End con Frameworks</h3>
+                    <ul>
+                        <li>Introducción a Angular</li>
+                        <li>Angular CLI: componentes, templates, módulos y servicios</li>
+                        <li>JSON y métodos HTTP (GET, POST, PUT, DELETE)</li>
+                        <li>Creación y consumo de servicios desde Angular usando async/await</li>
+                        <li>Firebase y Backend-as-a-Service (BaaS)</li>
+                        <li>Formularios reactivos y validaciones</li>
+                        <li>Ruteo y navegación entre vistas</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="practicas" class="section">
+            <h2>Prácticas</h2>
+            
+            <ul class="practicas-list">
+                <li>Instala Node.js, Git y Visual Studio Code</li>
+                <li>Crea una página de presentación personal usando etiquetas semánticas</li>
+                <li>Crea un menú adaptable para dispositivos móviles usando Tailwind o Bootstrap</li>
+                <li>Mejora de accesibilidad: añade etiquetas ARIA, alt, label y asegura navegación con teclado</li>
+                <li>Crea una función createUser(type) usando el patrón Factory Method para crear diferentes tipos de usuarios</li>
+                <li>Usa el patrón Adapter para adaptar una API simulada</li>
+                <li>Crea un sistema de "notas" que permita añadir estilos con el patrón Decorator</li>
+                <li>Usando Angular CLI crea al menos 3 componentes y un servicio para compartir datos</li>
+                <li>Consume una API pública usando HttpClient e implementa métodos GET, POST, PUT y DELETE</li>
+                <li>Crea un formulario de registro con validaciones reactivas (nombre, email, contraseña)</li>
+                <li>Implementa ruteo entre las vistas del formulario, inicio y dashboard</li>
+            </ul>
+        </section>
+
+        <section id="proyecto" class="section">
+            <h2>Proyecto de Asignatura</h2>
+            
+            <p>El proyecto integrador deberá demostrar el desarrollo y alcance de las competencias de la asignatura, considerando las siguientes fases:</p>
+
+            <div class="fases-proyecto">
+                <div class="fase">
+                    <h4>1. Fundamentación</h4>
+                    <p>Marco referencial (teórico, conceptual, contextual y legal) basado en un diagnóstico que permita comprender la realidad objeto de estudio.</p>
+                </div>
+
+                <div class="fase">
+                    <h4>2. Planeación</h4>
+                    <p>Diseño del proyecto con asesoría del docente, planificando el proceso de intervención, actividades, recursos y cronograma de trabajo.</p>
+                </div>
+
+                <div class="fase">
+                    <h4>3. Ejecución</h4>
+                    <p>Desarrollo de la planeación del proyecto, fase de mayor duración que implica el desempeño de las competencias genéricas y específicas.</p>
+                </div>
+
+                <div class="fase">
+                    <h4>4. Evaluación</h4>
+                    <p>Fase final que aplica un juicio de valor, promoviendo la evaluación para la mejora continua, metacognición y pensamiento crítico.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="evaluacion" class="section">
+            <h2>Evaluación por Competencias</h2>
+            
+            <div class="info-box">
+                <ul>
+                    <li>Prácticas con herramientas de desarrollo</li>
+                    <li>Examen escrito</li>
+                    <li>Proyecto integrador que ponga en práctica los conocimientos de la asignatura</li>
+                    <li>Participación en eventos académicos (congresos o concursos)</li>
+                    <li>Investigación documental</li>
+                    <li>Rúbricas para la evaluación de las prácticas</li>
+                    <li>Utilización de herramientas de desarrollo y programación</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="bibliografia" class="section">
+            <h2>Fuentes de Información</h2>
+            
+            <ul class="bibliografia">
+                <li><strong>Jon Duckett.</strong> (2022). JavaScript y jQuery: Desarrollo web interactivo. Anaya Multimedia.</li>
+                <li><strong>Jon Duckett.</strong> (2021). Diseño web con HTML y CSS. Anaya Multimedia.</li>
+                <li><strong>David Mark Clements.</strong> (2020). Node.js. Desarrollo de aplicaciones web con JavaScript en el servidor. Anaya Multimedia.</li>
+                <li><strong>José Carlos López.</strong> (2021). APIs RESTful. Diseño y desarrollo de servicios web. Marcombo.</li>
+                <li><strong>Carlos Azaustre.</strong> (2022). Desarrollador Full Stack: Guía completa para dominar el desarrollo web.</li>
+                <li><strong>Jorge Escobar.</strong> (2023). Desarrollo web Full Stack con JavaScript: Una guía completa para aprender HTML, CSS, JavaScript, React, Node.js y MongoDB.</li>
+            </ul>
+        </section>
+
+        <footer>
+            <p><strong>Tecnológico Nacional de México</strong></p>
+            <p>Dirección General</p>
+            <p style="margin-top: 1rem; font-size: 0.9rem;">Instituto Tecnológico Superior de Osorio - Junio 2025</p>
+        </footer>
+    </div>
+</body>
+</html>
